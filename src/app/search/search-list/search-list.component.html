@@ -1,0 +1,42 @@
+<div class="container text-center">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Holidays pictures" name="text" ngModel required>
+    </div>
+    <div class="form-inline filter">
+      <p>Filters:</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <label>Sort By</label>
+            <select class="form-control" name="sort" ngModel>
+              <option *ngFor="let sort of sorts" [ngValue]="sort.value">{{sort.label}}</option>
+            </select>
+          </div>
+          <div class="col-sm">
+            <label>Content Type</label>
+            <select class="form-control" name="content_type" ngModel>
+              <option *ngFor="let contentType of contentTypes" [ngValue]="contentType.value">{{contentType.label}}</option>
+            </select>          </div>
+          <div class="col-sm">
+            <label>Safe Search</label>
+            <select class="form-control" name="safe_search" ngModel>
+              <option *ngFor="let safeSearch of safeSearchs" [value]="safeSearch.value">{{safeSearch.label}}</option>
+            </select>          </div>
+          <div class="col-sm">
+            <label>Geographic Context</label>
+            <select class="form-control" name="geo_context" ngModel>
+              <option *ngFor="let geoContext of geoContexts" [value]="geoContext.value">{{geoContext.label}}</option>
+            </select>          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Search images</button>
+  </form>
+
+  <div class="row">
+    <div class="image_thumb col-sm" *ngFor="let photo of photos" [routerLink]="['search', photo.id, photo.secret]" >
+      <img src="{{ photo.url_s }}">
+    </div>
+  </div>
+</div>

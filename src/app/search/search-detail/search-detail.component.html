@@ -1,0 +1,57 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+      <img class="image_detail" src="{{ url }}">
+    </div>
+    <div class="col-sm-7">
+      <ul class="list-group">
+        <li class="list-group-item disabled">Image infos</li>
+        <li class="list-group-item">
+          <strong>Id: </strong>
+          {{ detail?.id }}
+        </li>
+        <li class="list-group-item">
+          <strong>Upload date: </strong>
+          {{detail?.dateuploaded * 1000 | date: 'dd-MM-yyyy'}}
+        </li>
+        <li class="list-group-item">
+          <strong>Owner: </strong>
+          {{ detail?.owner.username }}
+        </li>
+        <li class="list-group-item">
+          <strong>Title: </strong>
+          {{ detail?.title._content }}
+        </li>
+        <li class="list-group-item">
+          <strong>Description: </strong>
+          {{ detail?.description._content }}
+        </li>
+        <li class="list-group-item">
+          <strong>Direct Link: </strong>
+          <a href="{{ detail?.urls.url[0]._content }}">{{ detail?.urls.url[0]._content }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row comments">
+    <div *ngIf="!comments" class="alert alert-primary" role="alert">
+      No comments
+    </div>
+
+    <div class="media" *ngFor="let comment of comments">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object" src="https://www.bimandco.com/content/images/default-avatar-man.png" style="width: 64px; height: 64px;">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">
+            {{ comment.authorname}}
+            <small>at {{comment.datecreate * 1000 | date: 'dd-MM-yyyy'}}</small>
+          </h4>
+          <p>{{ comment._content}}</p>
+        </div>
+    </div>
+  </div>
+</div>

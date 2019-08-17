@@ -1,0 +1,32 @@
+.filter{
+  border: 3px #e6e6e6 solid;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.filter p{
+  font-size: 19px;
+  color: grey;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+label, select{
+  margin-right: 15px;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;
+}
+
+:-ms-input-placeholder {
+  text-align: center;
+}

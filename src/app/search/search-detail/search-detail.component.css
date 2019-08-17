@@ -1,0 +1,16 @@
+.comments{
+  margin-top: 20px;
+}
+
+.comments p{
+  font-style: italic;
+}
+
+img.media-object{
+  margin-right: 20px;
+}
+
+div.media{
+margin-bottom: 10px;
+  width: 100%;
+}
